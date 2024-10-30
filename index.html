@@ -34,8 +34,8 @@
       textFont("Arial"); // Ensure font is set for text rendering
 
       // Initialize very light gradient colors for emotions
-      positiveColor = color(180, 220, 255, 20); // Very light blue
-      negativeColor = color(255, 200, 200, 20); // Very light red
+      positiveColor = color(10, 220, 255, 20); // Very light blue
+      negativeColor = color(255, 50, 200, 20); // Very light red
 
       // Initialize nodes
       for (let i = 0; i < numNodes; i++) {
@@ -50,7 +50,7 @@
     }
 
     function draw() {
-      background(83, 75, 129, 5); // Light yellow with low alpha for gradient-like trail
+      background(83, 75, 129, 5);
 
       // Update and display each node
       for (let node of nodes) {
@@ -71,7 +71,7 @@
         this.pos = createVector(x, y);
         this.vel = p5.Vector.random2D().mult(0.5); // Random movement
         this.size = random(5, 15); // Random initial size for pulse effect
-        this.alpha = 120; // Initial alpha for gradient fading
+        this.alpha = 150; // Initial alpha for gradient fading
       }
 
       update() {
@@ -86,7 +86,7 @@
         // Pulse effect by oscillating the size
         this.size = 10 + 5 * sin(frameCount * 0.05 + this.pos.x * 0.1);
         // Gradual fading for trail effect
-        this.alpha = max(30, this.alpha - 0.2); // Keep minimum alpha to maintain visibility
+        this.alpha = max(40, this.alpha - 0.3); // Keep minimum alpha to maintain visibility
       }
 
       display() {
@@ -113,7 +113,7 @@
         this.pos = createVector(x, y);
         this.vel = p5.Vector.random2D().mult(random(0.5, 1)); // Random speed and direction
         this.baseColor = color;
-        this.alpha = 120; // Initial alpha for gradient fading
+        this.alpha = 150; // Initial alpha for gradient fading
       }
 
       update() {
