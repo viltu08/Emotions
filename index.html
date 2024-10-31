@@ -108,34 +108,33 @@
     }
 
     class FloatingWord {
-      constructor(word, x, y, color) {
-        this.word = word;
-        this.pos = createVector(x, y);
-        this.vel = p5.Vector.random2D().mult(random(0.5, 1)); // Random speed and direction
-        this.baseColor = color;
-        this.alpha = 150; // Initial alpha for gradient fading
-      }
+  constructor(word, x, y, color) {
+    this.word = word;
+    this.pos = createVector(x, y);
+    this.vel = p5.Vector.random2D().mult(random(0.5, 1)); // Random speed and direction
+    this.baseColor = color;
+    this.alpha = 200; // Increased initial alpha for better legibility
+  }
 
-      update() {
-        // Update position
-        this.pos.add(this.vel);
-        // Wrap around edges
-        if (this.pos.x > width) this.pos.x = 0;
-        if (this.pos.x < 0) this.pos.x = width;
-        if (this.pos.y > height) this.pos.y = 0;
-        if (this.pos.y < 0) this.pos.y = height;
-        
-        // Gradual fading for trace effect
-        this.alpha = max(30, this.alpha - 0.2);
-      }
+  update() {
+    this.pos.add(this.vel);
+    // Wrap around edges
+    if (this.pos.x > width) this.pos.x = 0;
+    if (this.pos.x < 0) this.pos.x = width;
+    if (this.pos.y > height) this.pos.y = 0;
+    if (this.pos.y < 0) this.pos.y = height;
+  }
 
-      display() {
-        fill(red(this.baseColor), green(this.baseColor), blue(this.baseColor), this.alpha); // Use base color with gradient alpha
-        noStroke();
-        textSize(random(10, 24)); // Dynamic text size between 10 and 24
-        text(this.word, this.pos.x, this.pos.y);
-      }
-    }
+  display() {
+    // Draw text with outline
+    textSize(20); // Fixed size for consistent readability
+    stroke(0, 100); // Light black outline for contrast
+    strokeWeight(2);
+    fill(red(this.baseColor), green(this.baseColor), blue(this.baseColor), this.alpha);
+    text(this.word, this.pos.x, this.pos.y);
+  }
+}
+
 
     function windowResized() {
       resizeCanvas(windowWidth, windowHeight);
