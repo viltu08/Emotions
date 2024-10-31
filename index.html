@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anytime Emotions</title>
+  <!-- Link Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -12,6 +14,7 @@
       align-items: center;
       background-color: yellow;
       overflow: hidden;
+      font-family: 'Philosopher', sans-serif;
     }
   </style>
 </head>
@@ -31,7 +34,7 @@
 
     function setup() {
       createCanvas(windowWidth, windowHeight);
-      textFont("Arial"); // Ensure font is set for text rendering
+      textFont("Philosopher"); 
 
       // Initialize very light gradient colors for emotions
       positiveColor = color(10, 220, 255, 20); // Very light blue
